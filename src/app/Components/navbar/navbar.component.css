@@ -1,0 +1,29 @@
+.btn-hover {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .btn-hover:hover {
+    transform: scale(1.1); /* Agrandar un poquito al hacer hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al hacer hover */
+  }
+  
+  .nav-link {
+    color: white !important;
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+  
+  .nav-text {
+    display: none; /* Ocultar texto por defecto */
+    transition: all 0.2s;
+  }
+  
+  .nav-link:hover .nav-text {
+    display: inline-block; /* Mostrar texto al hacer hover */
+  }
+  
+  .fas {
+    font-size: 24px; /* Tamaño del ícono */
+    color: white;
+  }
+  

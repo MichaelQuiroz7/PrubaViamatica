@@ -1,0 +1,42 @@
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  rel="stylesheet"
+/>
+<nav class="navbar navbar-expand-lg bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Productos</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- Opción de Perfil -->
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center btn-hover"
+            routerLink="/user"
+          >
+            <i class="fas fa-user me-2"></i>
+            <span class="nav-text">Perfil</span>
+          </a>
+        </li>
+
+        <!-- Opción de Logout -->
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center btn-hover" (click)="onLogout()">
+            <i class="fas fa-sign-out-alt me-2"></i>
+            <span class="nav-text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

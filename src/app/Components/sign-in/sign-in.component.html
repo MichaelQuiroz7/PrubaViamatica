@@ -1,0 +1,120 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<div class="container_body">
+  <div class="contact__wrapper shadow-lg">
+      <div class="row no-gutters">
+          <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2">
+              <h3 class="color--white mb-5">Contacto</h3>
+              <ul class="contact-info__list list-style--none position-relative z-index-101">
+                  <li class="mb-4 pl-4">
+                      <span class="position-absolute"><i class="fas fa-envelope"></i></span> 
+                  </li>
+                  <li class="mb-4 pl-4">
+                      <span class="position-absolute"><i class="fas fa-phone"></i></span> (021)-241454-545
+                  </li>
+                  <li class="mb-4 pl-4">
+                      <span class="position-absolute"><i class="fas fa-map-marker-alt"></i></span> Software Technologies Inc.
+                      <br> 9 de octubre
+                      <br> Guayaquil
+                      <div class="mt-3">
+                          <a href="https://www.google.com/maps" target="_blank" class="text-link link--right-icon text-white">Get directions <i class="link__icon fa fa-directions"></i></a>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
+
+            <div class="parrafo">
+              <a (click)="onBack()" class="back-icon">
+                <i class="fas fa-arrow-left"></i> Volver
+              </a>
+              <h2 *ngIf="!editMode">Registro de Usuario</h2>
+              <h2 *ngIf="editMode">Editar Perfil</h2>
+            </div>
+            
+            <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" class="contact-form form-validate" novalidate="novalidate">
+              <div class="row">
+                <!-- Campos de formulario (Nombres, Apellidos, Email siempre visibles) -->
+                <div class="col-sm-6 mb-3">
+                  <div class="form-group">
+                    <label for="sNameUser">Nombres</label>
+                    <input type="text" class="form-control" id="sNameUser" formControlName="sNameUser" [disabled]="editMode">
+                    <div *ngIf="registroForm.get('sNameUser')?.invalid && registroForm.get('sNameUser')?.touched">
+                      <small class="text-danger">El nombre es obligatorio</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 mb-3">
+                  <div class="form-group">
+                    <label for="sLastNameUser">Apellidos</label>
+                    <input type="text" class="form-control" id="sLastNameUser" formControlName="sLastNameUser" [disabled]="editMode">
+                    <div *ngIf="registroForm.get('sLastNameUser')?.invalid && registroForm.get('sLastNameUser')?.touched">
+                      <small class="text-danger">Los apellidos son obligatorios</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 mb-3">
+                  <div class="form-group">
+                    <label for="sEmail">Email</label>
+                    <input type="email" class="form-control" id="sEmail" formControlName="sEmail" [disabled]="editMode">
+                    <div *ngIf="registroForm.get('sEmail')?.invalid && registroForm.get('sEmail')?.touched">
+                      <small class="text-danger">El correo es obligatorio</small>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="col-sm-6 mb-3">
+                  <div class="form-group">
+                    <label for="sPassword">Contraseña</label>
+                    <input type="password" class="form-control" id="sPassword" formControlName="sPassword" placeholder="******">
+                    <div *ngIf="registroForm.get('sPassword')?.invalid && registroForm.get('sPassword')?.touched">
+                      <small class="text-danger">La contraseña es obligatoria</small>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Confirmar Contraseña -->
+                <div class="col-sm-6 mb-3">
+                  <div class="form-group">
+                    <label for="sPasswordConfirmated">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="sPasswordConfirmated" formControlName="sPasswordConfirmated" placeholder="******">
+                    <div *ngIf="!passwordsMatch() && registroForm.get('sPasswordConfirmated')?.touched">
+                      <small class="text-danger">Las contraseñas no coinciden</small>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Teléfono -->
+                <div class="col-sm-6 mb-3">
+                  <div class="form-group">
+                    <label for="sPhoneNumber">Teléfono</label>
+                    <input type="tel" class="form-control" id="sPhoneNumber" formControlName="sPhoneNumber" placeholder="(021)-454-545">
+                    <div *ngIf="registroForm.get('sPhoneNumber')?.invalid && registroForm.get('sPhoneNumber')?.touched">
+                      <small class="text-danger">El teléfono es obligatorio</small>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Dirección -->
+                <div class="col-sm-12 mb-3">
+                  <div class="form-group">
+                    <label class="required-field" for="sAddressUser">Dirección</label>
+                    <input type="text" class="form-control" id="sAddressUser" formControlName="sAddressUser" placeholder="Dirección completa">
+                    <div *ngIf="registroForm.get('sAddressUser')?.invalid && registroForm.get('sAddressUser')?.touched">
+                      <small class="text-danger">La dirección es obligatoria</small>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Botón de Registrar/Actualizar -->
+                <div class="col-sm-12 mb-3">
+                  <button type="submit" class="btn btn-primary">{{ editMode ? 'Actualizar' : 'Registrar' }}</button>
+                </div>
+              </div>
+            </form>
+          </div>     
+      </div>
+  </div>
+</div>
+

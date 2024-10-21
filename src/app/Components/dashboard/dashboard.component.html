@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+      <!-- Recorremos los productos -->
+      <div *ngFor="let product of products" class="col-md-4 mb-4">
+        <div class="card h-100">
+          <!-- Imagen del producto -->
+          <img [src]="product.link" class="card-img-top product-image" alt="Product Image">
+          
+          <div class="card-body">
+            <!-- Nombre del producto -->
+            <h5 class="card-title">{{ product.name }}</h5>
+  
+            <!-- Descripción -->
+            <p class="card-text">{{ product.description }}</p>
+  
+            <!-- Precio -->
+            <p class="card-text"><strong>Precio:</strong> ${{ product.price }}</p>
+  
+            <!-- Stock -->
+            <p class="card-text">
+              <strong>Disponibilidad:</strong> 
+              <span [ngClass]="product.stock ? 'text-success' : 'text-danger'">
+                {{ product.stock ? 'En stock' : 'Agotado' }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
